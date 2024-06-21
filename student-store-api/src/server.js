@@ -11,3 +11,5 @@ app.get("/", (req, res) => {
 app.listen(port, ()=>{
     console.log(`Server is running at http://localhost:${port}`);
 });
+
+// Implement CRUD (Create, Read, Update, Delete) operations for the Product model.
