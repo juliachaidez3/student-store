@@ -8,21 +8,29 @@ const getAllProducts = async () => {
 
 // function to get product by ID
 const getProductById = async (id) => {
-    return products.find((product) => products.id === parseInt(id));
+    return prisma.product.findUnique({where: {id:parseInt(id)}});
 };
 
 // function to create a new product
-const createProduct = async (newProduct) => {
-    const newId = products.length ? products[products.length - 1].id + 1 : 1;
-    newProduct.id = newId;
-    products.push(newProduct);
-    return newProduct;
+const createProduct = async (productData) => {
+    return prisma.product.create({data: productData});
 };
 
-// export the functions 
+// function to update a product
+const updateProduct = async (id, productData) => {
+    return prisma.product.update({where: {id:parseInt(id)}, data: productData,});
+};
 
+// function to delete a product
+const deleteProduct = async (id) => {
+    return prisma.product.delete({where: {id:parseInt(id)}});
+};
+  
+// export the functions
 module.exports = {
     getAllProducts,
     getProductById,
-    createProduct
+    createProduct,
+    updateProduct,
+    deleteProduct,
 };
