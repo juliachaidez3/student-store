@@ -1,9 +1,12 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-// function that gets all the cars
-const getAllProducts = async () => {
-    return prisma.product.findMany();
+// function that gets all the products
+const getAllProducts = async (filter = {}, orderBy = {}) => {
+    return prisma.product.findMany({
+        where: filter,
+        orderBy: orderBy,
+    });
 };
 
 // function to get product by ID
@@ -13,7 +16,15 @@ const getProductById = async (id) => {
 
 // function to create a new product
 const createProduct = async (productData) => {
-    return prisma.product.create({data: productData});
+    return prisma.product.create({
+        data: {
+            name: productData.name,
+            category: productData.category,
+            image_url: productData.image_url,
+            description: productData.description,
+            price: parseFloat(productData.price),
+        },
+    });
 };
 
 // function to update a product

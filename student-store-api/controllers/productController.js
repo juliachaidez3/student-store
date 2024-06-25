@@ -1,10 +1,23 @@
 // import productModel
 const productModel = require("../models/productModel");
 
-// function that gets all the cars
+// function that gets all the products
 const getAllProducts = async (req, res) => {
+    const { category, name, price } = req.query;
+    let filter = {}; // filter object
+    let orderBy = {}; // order by asc or desc
+
+    // add desired category to filter list
+    if (category) filter.category = category;
+
+    // sort alphabetically
+    if (name) orderBy = { name: name === "asc" ? "asc" : "desc" };
+
+    // sort by price, either asc or des
+    if (price) orderBy = { price: price === "asc" ? "asc" : "desc"};
+
     try {
-        const products = await productModel.getAllProducts();
+        const products = await productModel.getAllProducts(filter, orderBy);
         res.status(200).json(products);
     } catch (error) {
         res.status(400).json({error: error.message});

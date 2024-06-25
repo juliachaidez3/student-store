@@ -1,9 +1,12 @@
+require("dotenv").config()
 const express = require("express");
 const app = express();
 const port = 3000;
+const cors = require("cors");
 const productRoutes = require("../routes/productRoutes");
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
@@ -14,6 +17,6 @@ app.get("/", (req, res) => {
 // add product routes here
 app.use("/products", productRoutes);
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
