@@ -8,7 +8,12 @@ const getAllProducts = async (req, res) => {
     let orderBy = {}; // order by asc or desc
 
     // add desired category to filter list
-    if (category) filter.category = category;
+    if (category) {
+        filter.category = category;
+    }
+
+    //filter the cars
+    // filteredCars = filteredCars.filter((car) => car.make.toLowerCase() === req.query.make.toLowerCase());
 
     // sort alphabetically
     if (name) orderBy = { name: name === "asc" ? "asc" : "desc" };
