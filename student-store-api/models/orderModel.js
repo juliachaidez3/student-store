@@ -41,7 +41,7 @@ const addItem = async (order_id, orderData) => {
     const product = await prisma.product.findUnique({where: {id: orderData.product_id}});
     const order = await prisma.order.findUnique({where: {order_id: order_id}});
 
-    await prisma.orderItem.update({
+    await prisma.order.update({
         where: {order_id: order_id},
         data: {
             total_price: parseFloat(order.total_price) + parseFloat(product.price) * parseInt(orderData.quantity)
@@ -53,7 +53,6 @@ const addItem = async (order_id, orderData) => {
             product_id: parseInt(orderData.product_id),
             quantity: parseInt(orderData.quantity),
             price: parseFloat(product.price) * parseInt(orderData.quantity),
-
         }
     });
 };
@@ -64,8 +63,20 @@ const getTotalPrice = async (order_id, orderData) => {
 };
 
 // function to delete items to an existing order
-const deleteItem = async (order_id, orderData) => {
+const deleteItem = async (order_id, order_item_id) => {
+    const orderItem = await prisma.orderItem.findUnique({where: {order_item_id: parseInt(order_item_id)}});
+    const order = await prisma.order.findUnique({where: {order_id: parseInt(order_id)}});
+
+    await prisma.order.update({
+        where: {order_id: parseInt(order_id)},
+        data: {
+            total_price: parseFloat(order.total_price) - parseFloat(orderItem.price)
+        }
+    })
     
+    return prisma.orderItem.delete({
+        where: {order_item_id: parseInt(order_item_id)}
+    });
 };
   
 // export the functions
