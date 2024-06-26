@@ -19,14 +19,14 @@ model Product {
   category     String
   image_url    String
   description  String
-  price        Float
+  price        Decimal   @db.Decimal(10,2)
   OrderItem    OrderItem[]
 }
 
 model Order {
   order_id      Int      @id @default(autoincrement())
   customer_id   Int
-  total_price   Float
+  total_price   Decimal  @default(0) @db.Decimal(10,2)
   status        String
   created_at    DateTime @default(now())
   OrderItem     OrderItem[]
@@ -37,7 +37,7 @@ model OrderItem {
   order_id          Int
   product_id        Int
   quantity          Int
-  price             Float
+  price             Decimal   @db.Decimal(10,2)
   order             Order     @relation(fields:[order_id], references:[order_id])
   product           Product   @relation(fields:[product_id], references:[id])
 }

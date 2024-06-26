@@ -92,7 +92,13 @@ const addItem = async (req, res) => {
 
 // function to calculate and return the total price of an order
 const getTotalPrice = async (req, res) => {
-
+    try {
+        const orderTotal = await orderModel.getTotalPrice(req.params.order_id);
+        res.json(orderTotal);
+    } catch (error) {
+        console.error("Error getting total price from order:", error);
+        res.status(500).json({error: "Internal server error"});
+    }
 };
 
 // function to delete items to an existing order

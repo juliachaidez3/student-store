@@ -21,9 +21,9 @@ router.delete("/:id", orderController.deleteOrder);
 router.post("/:order_id/items", orderController.addItem);
 
 // delete item from existing order
-router.delete("/orders/:order_id/items", orderController.deleteItem);
+router.delete("/:order_id/items/:/order_item_id", orderController.deleteItem);
 
 // calculate the total price based on the order items
-router.get("/orders/:order_id/total", orderController.getTotalPrice);
+router.get("/:order_id/total", orderController.getTotalPrice);
 
 module.exports = router;
