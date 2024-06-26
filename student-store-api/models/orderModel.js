@@ -35,6 +35,21 @@ const updateOrder = async (order_id, orderData) => {
 const deleteOrder = async (order_id) => {
     return prisma.order.delete({where: {order_id:parseInt(order_id)}});
 };
+
+// function to add items to an existing order
+const addItem = async (order_id, orderData) => {
+    
+};
+
+// function to calculate and return the total price of an order
+const getTotalPrice = async (order_id, orderData) => {
+    
+};
+
+// function to delete items to an existing order
+const deleteItem = async (order_id, orderData) => {
+    
+};
   
 // export the functions
 module.exports = {
@@ -43,4 +58,7 @@ module.exports = {
     createOrder,
     updateOrder,
     deleteOrder,
+    addItem,
+    getTotalPrice,
+    deleteItem,
 };

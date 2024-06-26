@@ -17,16 +17,13 @@ router.put("/:id", orderController.updateOrder);
 // delete a order
 router.delete("/:id", orderController.deleteOrder);
 
-// Add Items to Order Endpoint
-// Create a new endpoint (e.g., POST /orders/:order_id/items) to add items to an existing order.
-// Update the Order and Order Item models to handle adding items to an order.
+// add item to existing order
+router.post("/orders/:order_id/items", orderController.addItem);
 
+// delete item from existing order
+router.delete("/orders/:order_id/items", orderController.deleteItem);
 
-
-
-
-// Calculate Order Total Endpoint
-// Create a new endpoint (e.g., GET /orders/:order_id/total) to calculate and return the total price of an order.
-// Update the Order model to include a method for calculating the total price based on the order items.
+// calculate the total price based on the order items
+router.get("/orders/:order_id/total", orderController.getTotalPrice);
 
 module.exports = router;

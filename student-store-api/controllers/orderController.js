@@ -79,6 +79,21 @@ const deleteOrder = async (req, res) => {
     }
 };
 
+// function to add items to an existing order
+const addItem = async (req, res) => {
+
+};
+
+// function to calculate and return the total price of an order
+const getTotalPrice = async (req, res) => {
+
+};
+
+// function to delete items to an existing order
+const deleteItem = async (req, res) => {
+
+};
+
 // export the function
 module.exports = {
     getAllOrders,
@@ -86,4 +101,7 @@ module.exports = {
     createOrder,
     updateOrder,
     deleteOrder,
+    addItem,
+    getTotalPrice,
+    deleteItem,
 };
