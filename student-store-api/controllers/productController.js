@@ -12,7 +12,7 @@ const getAllProducts = async (req, res) => {
         filter.category = category;
     }
 
-    //filter the cars
+    // work on make to lowercase later!!!
     // filteredCars = filteredCars.filter((car) => car.make.toLowerCase() === req.query.make.toLowerCase());
 
     // sort alphabetically
