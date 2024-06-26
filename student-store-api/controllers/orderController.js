@@ -81,7 +81,13 @@ const deleteOrder = async (req, res) => {
 
 // function to add items to an existing order
 const addItem = async (req, res) => {
-
+    try {
+        const orderItem = await orderModel.addItem(req.params.order_id, req.body);
+        res.json(orderItem);
+    } catch(error) {
+        console.error("Error adding item to order:", error);
+        res.status(500).json({error: "Internal server error"});
+    }
 };
 
 // function to calculate and return the total price of an order
@@ -91,7 +97,13 @@ const getTotalPrice = async (req, res) => {
 
 // function to delete items to an existing order
 const deleteItem = async (req, res) => {
-
+    try {
+        const orderItem = await orderModel.deleteItem(req.params.order_id, req.params.order_item_id);
+        res.json(orderItem);
+    } catch(error) {
+        console.error("Error deleting item to order:", error);
+        res.status(500).json({error: "Internal server error"});
+    }
 };
 
 // export the function

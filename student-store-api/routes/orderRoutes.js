@@ -18,7 +18,7 @@ router.put("/:id", orderController.updateOrder);
 router.delete("/:id", orderController.deleteOrder);
 
 // add item to existing order
-router.post("/orders/:order_id/items", orderController.addItem);
+router.post("/:order_id/items", orderController.addItem);
 
 // delete item from existing order
 router.delete("/orders/:order_id/items", orderController.deleteItem);
