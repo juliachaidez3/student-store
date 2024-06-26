@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 
 // function that gets all the orderItems
 const getAllOrderItems = async (filter = {}, orderBy = {}) => {
-    return prisma.order.findMany({
+    return prisma.orderItem.findMany({
         where: filter,
         orderBy: orderBy,
     });
@@ -17,13 +17,7 @@ const getOrderItemById = async (id) => {
 // function to create a new orderItem
 const createOrderItem = async (orderItemData) => {
     return prisma.orderItem.create({
-        data: {
-            name: orderItemData.name,
-            category: orderItemData.category,
-            image_url: orderItemData.image_url,
-            description: orderItemData.description,
-            price: parseFloat(orderItemData.price),
-        },
+        data: orderItemData
     });
 };
   

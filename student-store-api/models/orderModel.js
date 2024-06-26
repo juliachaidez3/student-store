@@ -2,16 +2,17 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 // function that gets all the orders
-const getAllOrders = async (filter = {}, orderBy = {}) => {
+const getAllOrders = async () => {
     return prisma.order.findMany({
-        where: filter,
-        orderBy: orderBy,
+        include: {OrderItem: true}
     });
 };
 
 // function to get order by ID
 const getOrderById = async (order_id) => {
-    return prisma.order.findUnique({where: {order_id:parseInt(order_id)}});
+    return prisma.order.findUnique({
+        include: {OrderItem: true},
+        where: {order_id:parseInt(order_id)}});
 };
 
 // function to create a new order
