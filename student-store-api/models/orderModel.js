@@ -37,7 +37,7 @@ const deleteOrder = async (order_id) => {
 
 // function to add items to an existing order
 const addItem = async (order_id, orderData) => {
-    const product = await prisma.product.findUnique({where: {id: orderData.product_id}});
+    const product = await prisma.product.findUnique({where: {id: parseInt(orderData.product_id)}});
     const order = await prisma.order.findUnique({where: {order_id: parseInt(order_id)}});
 
     await prisma.order.update({
