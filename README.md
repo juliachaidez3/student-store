@@ -3,12 +3,9 @@
 
 Submitted by: **Julia Chaidez**
 
-Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
-
 ### Application Features
 
 #### CORE FEATURES
-
 
 - [x] **Database Creation**: Set up a Postgres database to store information about products and orders.
   - [x] Use the provided schema to create tables for `products`, `orders`, and `order_items`.
@@ -39,7 +36,6 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
 - [x] **Frontend Integration**
   - [x] Connect the backend API to the provided frontend interface, ensuring dynamic interaction for product browsing, cart management, and order placement. Adjust the frontend as necessary to work with your API.
 
-
 #### STRETCH FEATURES
 
 - [ ] **Added Endpoints**
@@ -51,7 +47,6 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
   - [ ] Build your own user interface for browsing products, managing the shopping cart, and placing orders. This will involve integrating the frontend you create with the backend API you developed during the project.
 - [ ] **Past Orders Page**
   - [ ] Build a page in the UI that displays the list of all past orders. The user should be able to click on any individual order to take them to a more detailed page of the transaction.
-
 
 ### Walkthrough Video
 
@@ -71,14 +66,9 @@ Add your response here
 
 Add your response here
 
-### Open-source libraries used
-
-- Add any links to open-source libraries used in your project.
-
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
-
+Huge shoutout this week to Andy for helping with this project! Also thank you to all my other peers for helping me including Chris, Karina, and Sam.
 
 
 

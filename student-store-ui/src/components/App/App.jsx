@@ -60,7 +60,7 @@ function App() {
     const url = `${DEV_BASE_URL}/orders`;
 
     const newOrder = {
-      customer_id: userInfo.id,
+      customer_id: parseInt(userInfo.id),
       status: "pending",
     }
 
@@ -69,12 +69,12 @@ function App() {
     console.log(data);
     setOrder(data);
 
-    for(const [key, value] of Object.entries(cart)) {
+    for (const [key, value] of Object.entries(cart)) {
       const url1 =  `${DEV_BASE_URL}/orders/${data.order_id}/items`
       const newItem = {
-        order_id: data.order_id,
-        product_id: key,
-        quantity: value,
+        order_id: parseInt(data.order_id),
+        product_id: parseInt(key),
+        quantity: parseInt(value),
       }
       const response1 = await axios.post(url1, newItem);
     }
@@ -84,6 +84,11 @@ function App() {
       status: "completed",
     }
     const response2 = await axios.put(url2, updateItem);
+
+    const data2 = response2.data;
+    console.log(data2);
+    setOrder(data2);
+
     setCart({});
     setIsCheckingOut(false);
 
