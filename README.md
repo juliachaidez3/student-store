@@ -50,7 +50,7 @@ Submitted by: **Julia Chaidez**
 
 ### Walkthrough Video
 
-`ADD_EMBEDDED_CODE_HERE`
+`https://youtu.be/DorIX7AHtEs?si=NICXHZfAtRWEnWVo`
 
 ### Reflection
 
