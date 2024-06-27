@@ -38,9 +38,9 @@ Submitted by: **Julia Chaidez**
 
 #### STRETCH FEATURES
 
-- [ ] **Added Endpoints**
-  - [ ] Create an endpoint for fetching all orders in the database.
-  - [ ] Create an endpoint for serving an individual order based on its ID.
+- [x] **Added Endpoints**
+  - [x] Create an endpoint for fetching all orders in the database.
+  - [x] Create an endpoint for serving an individual order based on its ID.
 - [ ] **Filter Orders**
   - [ ] Allow users to use an input to filter orders by the email of the person who placed the order.
 - [ ] **Implement Your Own Frontend**
@@ -56,15 +56,15 @@ Submitted by: **Julia Chaidez**
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes, the labs were very helpful for this unit. Specifically lab 3 for how to set up the database and use prisma was useful for referencing during the project.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time I would update the UI to be more user friendly and change the CSS to make the website more responsive/accessible.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+The project demo was difficult this week since the project was all backend. I need to work on explaining the coding process and how the different technologies interact.
 
 ### Shout out
 
